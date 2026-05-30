@@ -1,0 +1,9 @@
+cmake_path(GET CMAKE_CURRENT_SOURCE_DIR FILENAME EXEC_NAME)
+
+file(GLOB_RECURSE SOURCES
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cxx
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cc
+)
+
+add_executable(${EXEC_NAME} ${SOURCES})

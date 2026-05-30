@@ -1,0 +1,20 @@
+cmake_minimum_required(VERSION 3.20)
+project(LabsCpp LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang|AppleClang")
+    add_compile_options(-Wall -Wextra -Wpedantic)
+elseif(MSVC)
+    add_compile_options(/W4)
+endif()
+
+add_subdirectory(107-ClassBasics)
+add_subdirectory(108-Restricting_access)
+add_subdirectory(109-Obtaining_derived_data)
+add_subdirectory(1010-ClassesAndObjects)
+add_subdirectory(1212-FlightBooking)

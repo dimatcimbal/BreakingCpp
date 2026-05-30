@@ -1,0 +1,11 @@
+build/
+cmake-build-*/
+compile_commands.json
+
+CLAUDE.md
+.claude/
+
+.idea/
+.cache/
+
+.DS_Store
