@@ -22,6 +22,7 @@ configure: ## Configure with Ninja
 
 build: configure ## Build all labs (Debug)
 	cmake --build $(BUILD_DIR) $(if $(TARGET),--target $(TARGET)) -j
+	@echo "BUILD DONE"
 
 release: ## Build all labs in Release mode
 	$(MAKE) BUILD_TYPE=Release build
@@ -41,9 +42,10 @@ format: ## Format all source files with clang-format
 		done
 
 test: ## Run functional tests in all labs that have a Makefile
-	@for dir in */; do \
-		if [ -f "$$dir/Makefile" ]; then \
-			$(MAKE) -C $$dir test; \
+	@for dir in $(BUILD_DIR)/*/; do \
+		lab=$$(basename $$dir); \
+		if [ -f "$$lab/Makefile" ]; then \
+			$(MAKE) -C $$lab test; \
 		fi \
 	done
 

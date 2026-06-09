@@ -4,6 +4,7 @@ BINARY := ../build/1212-FlightBooking/1212-FlightBooking
 .PHONY: test
 
 test:
+	@printf "Tests $(BINARY)\n"
 	@printf "100\n50\nquit\n" | $(BINARY) | \
 		diff - <(echo "Flight 1 : 50/100 (50%) seats reserved") \
 		&& echo "PASS: 50/100"

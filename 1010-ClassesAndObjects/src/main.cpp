@@ -1,6 +1,5 @@
-class ShopItemOrder
-{
-  // Write your code here
+class ShopItemOrder {
+    // Write your code here
 };
 
 int main() {

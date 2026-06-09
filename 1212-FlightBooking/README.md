@@ -44,3 +44,6 @@ The command "cancel [n]" will try to cancel n reservations from the flight.
 If an operation fails for any reason, the program will issue the message "Cannot perform this operation"
 The command "quit" will stop execution of the program.
 
+## C++ Gotchas
+
+See [GOTCHAS.md](GOTCHAS.md).
