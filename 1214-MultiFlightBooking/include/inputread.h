@@ -4,8 +4,7 @@
 #include <sstream>
 #include <string>
 
-inline bool read_uint(std::istringstream& iss, uint& out,
-                      const std::string& err) {
+inline bool read_uint(std::istringstream& iss, uint& out, const std::string& err) {
     int value;
     iss >> value;
     // we are reading a uint
