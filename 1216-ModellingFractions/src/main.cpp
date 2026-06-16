@@ -3,14 +3,16 @@
 #include <string>
 #include <vector>
 
-class Fraction {
-  public:
-    Fraction(int numerator, int denominator) : numerator(numerator), denominator(denominator){}
+struct Fraction {
+    Fraction(int numerator, int denominator);
     std::string to_string() const;
     double to_double() const;
     int numerator;
     int denominator;
 };
+
+Fraction::Fraction(int numerator, int denominator)
+    : numerator(numerator), denominator(denominator) {}
 
 std::string Fraction::to_string() const {
     std::ostringstream oss;
@@ -45,18 +47,20 @@ double Fraction::to_double() const {
     return (numerator * 1.0) / denominator;
 }
 
-int main() {
-    // complete line till '\n'
-    std::string line;
-    std::getline(std::cin, line);
-
+Fraction read_fraction(std::istream& in) {
+    // 1. target to read to
     Fraction f{0, 1};
     int* values[] = {&f.numerator, &f.denominator};
 
-    // parsing loop
+    // 2. read line till the next one '\n'
+    std::string line;
+    std::getline(in, line);
+
+    // 3. pars the line with a custom delimiter '/'
     std::string token;
     std::istringstream iss{line};
-    for (int i = 0; std::getline(iss, token, '/') && i < 2; i++) {
+
+    for (size_t i = 0; std::getline(iss, token, '/') && i < std::size(values); i++) {
         int val;
         std::istringstream ss{token};
         if (ss >> val) {
@@ -64,6 +68,11 @@ int main() {
         }
     }
 
+    return f;
+}
+
+int main() {
+    Fraction f = read_fraction(std::cin);
     std::cout << f.to_string() << "\n";
     return 0;
 }
