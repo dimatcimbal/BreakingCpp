@@ -21,4 +21,4 @@ add_subdirectory(1212-FlightBooking)
 add_subdirectory(1214-MultiFlightBooking)
 add_subdirectory(1216-ModellingFractions)
 add_subdirectory(1217-ModellingFractions2)
-
+add_subdirectory(1218-ModellingFractions3)
