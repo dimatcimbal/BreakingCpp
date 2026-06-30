@@ -5,9 +5,9 @@ BINARY := ../build/1218-ModellingFractions3/1218-ModellingFractions3
 
 test:
 	@printf "Tests $(BINARY)\n"
-	@printf "3/4\n1/3\n" | $(BINARY) | \
-		diff - <(printf "3/4 > 1/3\n") \
+	@printf "%s\n%s\n" "3/4" "1/3" | $(BINARY) | \
+		diff - <(printf "%s\n" "3/4 > 1/3") \
 		&& echo "PASS: case 1"
-	@printf "7/4\n-6/10\n" | $(BINARY) | \
+	@printf "%s\n%s\n" "7/4" "-6/10" | $(BINARY) | \
 		diff - <(printf "%s\n" "1 3/4 > -6/10") \
 		&& echo "PASS: case 2"

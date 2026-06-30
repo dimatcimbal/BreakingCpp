@@ -48,7 +48,7 @@ double Fraction::to_double() const {
 }
 
 Fraction read_fraction(std::istream& in) {
-    // 1. target to read to
+    // 1. create target to read to
     Fraction f{0, 1};
     int* values[] = {&f.numerator, &f.denominator};
 
@@ -56,11 +56,12 @@ Fraction read_fraction(std::istream& in) {
     std::string line;
     std::getline(in, line);
 
-    // 3. pars the line with a custom delimiter '/'
+    // 3. parse the line with a custom delimiter '/'
+    char delim('/');
     std::string token;
     std::istringstream iss{line};
 
-    for (size_t i = 0; std::getline(iss, token, '/') && i < std::size(values); i++) {
+    for (size_t i = 0; std::getline(iss, token, delim) && i < std::size(values); i++) {
         int val;
         std::istringstream ss{token};
         if (ss >> val) {

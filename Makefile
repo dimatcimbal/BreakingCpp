@@ -41,7 +41,7 @@ format: ## Format all source files with clang-format
 			fi; \
 		done
 
-test: ## Run functional tests in all labs that have a Makefile
+test: build ## Run functional tests in all labs that have a Makefile
 	@for dir in $(BUILD_DIR)/*/; do \
 		lab=$$(basename $$dir); \
 		if [ -f "$$lab/Makefile" ]; then \
