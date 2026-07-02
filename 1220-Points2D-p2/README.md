@@ -20,5 +20,9 @@ y = [a]x - [b]    — if b < 0
 
 ## Notes
 
-- Reuse `Point2D` from `1219-Points2D`
+- `Point2D` stores `x` and `y` as `double` coordinates
 - `Line2D` takes two `Point2D` objects in its constructor
+
+## C++ Gotchas
+
+See [GOTCHAS.md](GOTCHAS.md).
