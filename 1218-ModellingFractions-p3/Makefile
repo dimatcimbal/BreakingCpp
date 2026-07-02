@@ -1,5 +1,5 @@
 SHELL  := /bin/bash
-BINARY := ../build/1218-ModellingFractions3/1218-ModellingFractions3
+BINARY := ../build/1218-ModellingFractions-p3/1218-ModellingFractions-p3
 
 .PHONY: test
 

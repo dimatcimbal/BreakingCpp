@@ -1,5 +1,5 @@
 SHELL  := /bin/bash
-BINARY := ../build/1214-MultiFlightBooking/1214-MultiFlightBooking
+BINARY := ../build/1214-FlightBooking-p2/1214-FlightBooking-p2
 
 .PHONY: test
 

@@ -1,5 +1,5 @@
 SHELL  := /bin/bash
-BINARY := ../build/1219-Points2D/1219-Points2D
+BINARY := ../build/1219-Points2D-p1/1219-Points2D-p1
 
 .PHONY: test
 
