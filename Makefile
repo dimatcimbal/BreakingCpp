@@ -1,7 +1,7 @@
 BUILD_TYPE ?= Debug
 BUILD_DIR  ?= build
 
-.PHONY: help configure build release clean rebuild format format-check test
+.PHONY: help configure build release clean rebuild format format-check test asan ubsan sanitize
 
 help: ## Show available targets
 	@echo "LabsCpp — Build Commands"
@@ -27,6 +27,16 @@ build: configure ## Build all labs (Debug)
 release: ## Build all labs in Release mode
 	$(MAKE) BUILD_TYPE=Release build
 
+asan: ## Build and run tests with AddressSanitizer
+	$(MAKE) BUILD_TYPE=ASan BUILD_DIR=build-asan build
+	$(MAKE) BUILD_TYPE=ASan BUILD_DIR=build-asan test
+
+ubsan: ## Build and run tests with UndefinedBehaviorSanitizer
+	$(MAKE) BUILD_TYPE=UBSan BUILD_DIR=build-ubsan build
+	$(MAKE) BUILD_TYPE=UBSan BUILD_DIR=build-ubsan test
+
+sanitize: asan ubsan ## Run all sanitizer builds
+
 clean: ## Remove build artifacts
 	rm -rf $(BUILD_DIR) compile_commands.json
 
@@ -45,7 +55,7 @@ test: build ## Run functional tests in all labs that have a Makefile
 	@for dir in $(BUILD_DIR)/*/; do \
 		lab=$$(basename $$dir); \
 		if [ -f "$$lab/Makefile" ]; then \
-			$(MAKE) -C $$lab test; \
+			$(MAKE) -C $$lab test BINARY=../$(BUILD_DIR)/$$lab/$$lab; \
 		fi \
 	done
 
