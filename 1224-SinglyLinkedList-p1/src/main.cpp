@@ -79,6 +79,7 @@ List::~List() {
         delete n;
         n = tmp;
     }
+    head = nullptr;
 }
 
 void List::push_front(int value) {
@@ -155,8 +156,7 @@ int main() {
     list.push_front(3);
     list.push_front(4);
 
-    int value = 0;
-    while (list.pop_front(value)) {
+    for (int value; list.pop_front(value);) {
         std::cout << value << std::endl;
     }
     return 0;
