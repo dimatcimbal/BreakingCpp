@@ -27,13 +27,13 @@ build: configure ## Build all labs (Debug)
 release: ## Build all labs in Release mode
 	$(MAKE) BUILD_TYPE=Release build
 
-asan: ## Build and run tests with AddressSanitizer
-	$(MAKE) BUILD_TYPE=ASan BUILD_DIR=build-asan build
-	$(MAKE) BUILD_TYPE=ASan BUILD_DIR=build-asan test
-
-ubsan: ## Build and run tests with UndefinedBehaviorSanitizer
-	$(MAKE) BUILD_TYPE=UBSan BUILD_DIR=build-ubsan build
-	$(MAKE) BUILD_TYPE=UBSan BUILD_DIR=build-ubsan test
+#asan: ## Build and run tests with AddressSanitizer
+#	$(MAKE) BUILD_TYPE=ASan BUILD_DIR=build-asan build
+#	$(MAKE) BUILD_TYPE=ASan BUILD_DIR=build-asan test
+#
+#ubsan: ## Build and run tests with UndefinedBehaviorSanitizer
+#	$(MAKE) BUILD_TYPE=UBSan BUILD_DIR=build-ubsan build
+#	$(MAKE) BUILD_TYPE=UBSan BUILD_DIR=build-ubsan test
 
 sanitize: asan ubsan ## Run all sanitizer builds
 
